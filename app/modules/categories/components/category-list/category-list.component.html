@@ -1,0 +1,23 @@
+<side-drawer-page>
+  <StackLayout class="card" [visibility]="isLoaded ? 'visible' : 'collapsed'">
+    <SearchBar #searchBar hint="Search" (loaded)="onSearchBarLoaded()" (textChange)="search(searchBar.text)"></SearchBar>
+    <ScrollView>
+      <StackLayout>
+        <CardView *ngFor="let category of categoryList" class="card" margin="6" (tap)="filterRecipe(category)">
+          <StackLayout>
+            <AbsoluteLayout height="300">
+              <Image [src]="category.imageUrl" width="100%"></Image>
+            </AbsoluteLayout>
+            <StackLayout class="p-10">
+              <Label class="h2 text-primary" [text]="category.name" textWrap="true"></Label>
+              <Label class="text-muted" [text]="category.description" textWrap="false"></Label>
+            </StackLayout>
+          </StackLayout>
+        </CardView>
+      </StackLayout>
+    </ScrollView>
+  </StackLayout>
+  <GridLayout class="loader-container" [visibility]="!isLoaded ? 'visible' : 'collapsed'">
+    <ActivityIndicator width="30" height="30" [busy]="!isLoaded" class="activity-indicator"></ActivityIndicator>
+  </GridLayout>
+</side-drawer-page>

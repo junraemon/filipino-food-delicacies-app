@@ -1,0 +1,34 @@
+<ActionBar [title]="category.name" class="action-bar">
+  <NavigationButton android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<TabView class="tab-view">
+  <StackLayout *tabItem="{title: 'Details'}">
+    <CardView class="card" margin="6">
+      <StackLayout>
+        <Image [src]="category.imageUrl" width="100%"></Image>
+        <StackLayout class="p-10">
+          <Label class="h2 text-primary" [text]="category.name" textWrap="true"></Label>
+          <Label class="" [text]="category.description" textWrap="true"></Label>
+        </StackLayout>
+      </StackLayout>
+    </CardView>
+  </StackLayout>
+  <StackLayout *tabItem="{title: 'Recipes'}">
+    <SearchBar #searchBar hint="Search" (loaded)="onSearchBarLoaded()" (textChange)="search(searchBar.text)"></SearchBar>
+    <ListView class="list-group" [items]="recipeList" (itemTap)="recipeDetails($event)">
+      <ng-template let-recipe="item">
+        <GridLayout class="list-group-item" columns="auto, *">
+          <Image col="0" class="thumb img-rounded" horizontalAlignment="left" [src]="recipe.imageUrl"></Image>
+          <StackLayout col="1">
+            <Label class="list-group-item-heading" [text]="recipe.name"></Label>
+            <Label class="list-group-item-text" [text]="recipe.shortIntro" textWrap="false"></Label>
+          </StackLayout>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+    <GridLayout class="loader-container" [visibility]="!isLoaded ? 'visible' : 'collapsed'">
+      <ActivityIndicator width="30" height="30" [busy]="!isLoaded" class="activity-indicator"></ActivityIndicator>
+    </GridLayout>
+  </StackLayout>
+</TabView>

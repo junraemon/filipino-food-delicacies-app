@@ -1,0 +1,9 @@
+bin/dist
+node_modules
+tags
+**/*.js.map
+**/*.js
+**/*.metadata.json
+
+/hooks
+/platforms

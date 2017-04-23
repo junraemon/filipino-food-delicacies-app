@@ -1,0 +1,19 @@
+<side-drawer-page>
+   <StackLayout class="card">
+      <SearchBar #searchBar hint="Search" (loaded)="onSearchBarLoaded()" (textChange)="search(searchBar.text)"></SearchBar>
+      <ListView class="list-group" [items]="recipeList" (itemTap)="recipeDetails($event)">
+         <ng-template let-recipe="item">
+            <GridLayout class="list-group-item" columns="auto, *">
+               <Image col="0" class="thumb img-rounded" horizontalAlignment="left" [src]="recipe.imageUrl"></Image>
+               <StackLayout col="1">
+                  <Label class="list-group-item-heading" [text]="recipe.name"></Label>
+                  <Label class="list-group-item-text" [text]="recipe.shortIntro" textWrap="false"></Label>
+               </StackLayout>
+            </GridLayout>
+         </ng-template>
+      </ListView>
+      <GridLayout class="loader-container" [visibility]="!isLoaded ? 'visible' : 'collapsed'">
+         <ActivityIndicator width="30" height="30" [busy]="!isLoaded" class="activity-indicator"></ActivityIndicator>
+      </GridLayout>
+   </StackLayout>
+</side-drawer-page>

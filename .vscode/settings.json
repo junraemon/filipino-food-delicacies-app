@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "files.exclude": {
+        "node_modules/": true,
+		"platforms/": true,
+		"hooks/": true,
+		"firebase.nativescript.json" : true,
+		"tsconfig.aot.json" : true,
+		"tsconfig.json" : true,
+		"webpack.android.js" : true,
+		"webpack.common.js" : true,
+		"webpack.common.js" : true,
+		"webpack.ios.js" : true,
+		"app/package.json" : true,
+		"app/README.md" : true,
+		"app/vendor-platform.android.ts" : true,
+		"app/vendor-platform.ios.ts" : true,
+		"app/vendor.ts" : true,
+		"app/App_Resources/" : true
+    }
+}

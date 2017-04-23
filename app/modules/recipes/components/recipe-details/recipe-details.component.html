@@ -1,0 +1,19 @@
+<ActionBar [title]="'Recipe - ' + recipe.name" class="action-bar">
+   <NavigationButton android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+   <StackLayout class="card">
+      <AbsoluteLayout height="210">
+         <Image [src]="recipe.imageUrl" width="100%"></Image>
+      </AbsoluteLayout>
+      <StackLayout class="card">
+         <StackLayout class="bg-primary p-10">
+            <Label [text]="recipe.name" class="h1 recipe-name text-center" textWrap="true"></Label>
+         </StackLayout>
+         <StackLayout class="card p-t-10 p-x-10">
+            <HtmlView [html]="recipe.details"></HtmlView>
+         </StackLayout>
+      </StackLayout>
+   </StackLayout>
+</ScrollView>
