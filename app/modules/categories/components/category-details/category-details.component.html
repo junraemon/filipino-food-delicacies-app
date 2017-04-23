@@ -4,15 +4,17 @@
 
 <TabView class="tab-view">
   <StackLayout *tabItem="{title: 'Details'}">
-    <CardView class="card" margin="6">
-      <StackLayout>
-        <Image [src]="category.imageUrl" width="100%"></Image>
-        <StackLayout class="p-10">
-          <Label class="h2 text-primary" [text]="category.name" textWrap="true"></Label>
-          <Label class="" [text]="category.description" textWrap="true"></Label>
+    <ScrollView>
+      <CardView class="card" margin="6">
+        <StackLayout>
+          <Image [src]="category.imageUrl" width="100%"></Image>
+          <StackLayout class="p-10">
+            <Label class="h2 text-primary" [text]="category.name" textWrap="true"></Label>
+            <Label class="" [text]="category.description" textWrap="true"></Label>
+          </StackLayout>
         </StackLayout>
-      </StackLayout>
-    </CardView>
+      </CardView>
+    </ScrollView>
   </StackLayout>
   <StackLayout *tabItem="{title: 'Recipes'}">
     <SearchBar #searchBar hint="Search" (loaded)="onSearchBarLoaded()" (textChange)="search(searchBar.text)"></SearchBar>
